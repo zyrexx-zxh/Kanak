@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For Kanak ji 💌</title>
+<meta name="theme-color" content="#1a0b2e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#190a2b;
+    --bg-mid:#3a1152;
+    --bg-glow:#7a2a63;
+    --pink:#ff8fc7;
+    --pink-deep:#ff5fa8;
+    --violet:#b45cff;
+    --cream:#fff5fa;
+    --plum-text:#3d1436;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html, body{
+    margin:0;
+    padding:0;
+    min-height:100%;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+  }
+  html::-webkit-scrollbar, body::-webkit-scrollbar{ width:0; height:0; display:none; }
+
+  body{
+    font-family:'Quicksand', sans-serif;
+    color:#fff;
+    background:
+      radial-gradient(circle at 18% 15%, rgba(255,143,199,0.16), transparent 45%),
+      radial-gradient(circle at 82% 78%, rgba(180,92,255,0.20), transparent 50%),
+      linear-gradient(165deg, var(--bg-deep) 0%, var(--bg-mid) 45%, var(--bg-glow) 100%);
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+  }
+
+  .stars{ position:fixed; inset:0; overflow:hidden; z-index:0; pointer-events:none; }
+  .star{ position:absolute; background:#fff; border-radius:50%; opacity:.2; animation:twinkle ease-in-out infinite; }
+  @keyframes twinkle{ 0%,100%{ opacity:.12; } 50%{ opacity:.9; } }
+
+  .app-container{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:400px;
+    min-height:100vh;
+    margin:0 auto;
+    padding:36px 20px 48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .screen{
+    width:100%;
+    display:none; 
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(25px) scale(0.96); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes fadeOutDown {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: translateY(15px) scale(0.96); }
+  }
+
+  .glass-card{
+    width:100%;
+    background:rgba(255,255,255,0.09);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,0.22);
+    border-radius:28px;
+    box-shadow:0 12px 36px rgba(0,0,0,0.35);
+    padding:30px 24px;
+  }
+
+  h1, h2{ margin:0 0 6px; }
+  h2{ font-size:21px; font-weight:800; line-height:1.3; }
+  .subtext{ font-size:14.5px; line-height:1.55; color:rgba(255,255,255,0.85); margin:10px 0 22px; }
+
+  .gif-md{
+    width:min(210px, 68%);
+    border-radius:22px;
+    box-shadow:0 10px 28px rgba(0,0,0,0.4);
+    margin:2px auto 18px;
+    display:block;
+  }
+  .gif-floating{
+    width:min(190px, 62%);
+    filter:drop-shadow(0 12px 20px rgba(0,0,0,0.4));
+    margin:2px auto 18px;
+    display:block;
+  }
+
+  button{ font-family:'Quicksand', sans-serif; border:none; cursor:pointer; }
+  button:focus-visible{ outline:2px solid #fff; outline-offset:3px; }
+
+  .btn-primary{
+    background:linear-gradient(135deg, var(--pink), var(--violet));
+    color:#fff;
+    font-weight:700;
+    font-size:15px;
+    padding:15px 30px;
+    border-radius:999px;
+    box-shadow:0 10px 24px rgba(255,95,168,0.35);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .btn-primary:active{ transform:scale(0.92); }
+
+  .btn-ghost{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.3);
+    color:#fff;
+    font-weight:600;
+    font-size:15px;
+    padding:14px 22px;
+    border-radius:999px;
+    transition:transform .18s ease, background .18s ease;
+  }
+  .btn-ghost:active{ transform:scale(0.92); background:rgba(255,255,255,0.14); }
+
+  .btn-pulse{ animation:pulseBtn 2.1s ease-in-out infinite; }
+  @keyframes pulseBtn{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.055); } }
+
+  .nav-row{ display:flex; gap:12px; justify-content:center; width:100%; margin-top:4px; }
+
+  .dots{ display:flex; gap:7px; justify-content:center; margin:0 0 20px; }
+  .dot{ width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.28); }
+  .dot.active{ background:var(--pink); box-shadow:0 0 8px var(--pink); }
+
+  .cursive-name{
+    font-family:'Dancing Script', cursive;
+    font-size:48px;
+    font-weight:700;
+    background:linear-gradient(135deg, #ffd6ec, var(--pink));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin-bottom:22px;
+  }
+  .frame-heart{
+    position:relative;
+    width:200px;
+    height:186px;
+    margin:0 auto 30px;
+  }
+  .frame-heart::before{
+    content:"";
+    position:absolute;
+    inset:-18px;
+    background:radial-gradient(circle, rgba(255,143,199,0.45), transparent 70%);
+    filter:blur(6px);
+    z-index:0;
+  }
+  .frame-heart img{
+    position:relative;
+    z-index:1;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    clip-path:path('M100,186 C40,144 0,101 0,60 C0,25 25,0 56,0 C77,0 92,11 100,29 C108,11 123,0 144,0 C175,0 200,25 200,60 C200,101 160,144 100,186 Z');
+  }
+
+  .slide-card{ width:100%; padding-top:2px; }
+
+  .envelope-wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+    cursor:pointer;
+    background:none;
+    padding:40px 10px;
+  }
+  .gif-envelope{
+    width:200px;
+    filter:drop-shadow(0 16px 26px rgba(0,0,0,0.45));
+    animation:bounceEnv 2s ease-in-out infinite;
+  }
+  @keyframes bounceEnv{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-16px); } }
+  .tap-label{
+    font-weight:800;
+    font-size:16.5px;
+    letter-spacing:.3px;
+    animation:pulseOpacity 1.7s ease-in-out infinite;
+  }
+  @keyframes pulseOpacity{ 0%,100%{ opacity:1; } 50%{ opacity:.4; } }
+
+  .letter-card{
+    width:100%;
+    position:relative;
+    background:linear-gradient(160deg, var(--cream), #ffe1f0);
+    color:var(--plum-text);
+    border-radius:18px;
+    padding:34px 26px 28px;
+    box-shadow:0 22px 48px rgba(0,0,0,0.4);
+    overflow:hidden;
+  }
+  .letter-card::after{
+    content:"";
+    position:absolute;
+    top:0; right:0;
+    border-width:0 26px 26px 0;
+    border-style:solid;
+    border-color:transparent rgba(0,0,0,0.08) transparent transparent;
+  }
+  .letter-card h2{ color:var(--plum-text); font-size:19px; }
+  .letter-body{
+    font-size:14.5px;
+    line-height:1.7;
+    text-align:left;
+    margin:16px 0 22px;
+    color:#4a1c42;
+  }
+  .letter-card .gif-floating{ margin-bottom:20px; }
+
+  .meter-label{
+    font-weight:800;
+    font-size:16px;
+    letter-spacing:.3px;
+    margin:4px 0 14px;
+    transition: color 0.3s;
+  }
+  .progress-track{
+    width:100%;
+    height:18px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.16);
+    box-shadow:inset 0 2px 6px rgba(0,0,0,0.3);
+    overflow:hidden;
+    margin-bottom:26px;
+  }
+  .progress-fill{
+    height:100%;
+    width:0%;
+    border-radius:999px;
+    background:linear-gradient(90deg, var(--pink-deep), #ffb37a);
+    transition:width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .heart-tap-btn{
+    width:100%;
+    background:linear-gradient(135deg, var(--pink), var(--violet));
+    color:#fff;
+    font-weight:800;
+    font-size:15px;
+    line-height:1.4;
+    padding:22px 18px;
+    border-radius:26px;
+    box-shadow:0 14px 30px rgba(255,95,168,0.4);
+    animation:pulseBtn 1.8s ease-in-out infinite;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+  }
+  .heart-tap-btn span{ font-size:34px; }
+  .heart-tap-btn.bump{ animation:bumpTap .25s ease-out; }
+  @keyframes bumpTap{ 0%{ transform:scale(1); } 50%{ transform:scale(0.85); } 100%{ transform:scale(1); } }
+
+  .coupons-card h2{ margin-bottom:18px; font-size:20px; }
+  .coupon{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:rgba(255,255,255,0.12);
+    border:2px dashed rgba(255,255,255,0.5);
+    border-radius:18px;
+    padding:16px 16px;
+    margin-bottom:14px;
+    text-align:left;
+    cursor:pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .coupon:hover { transform: scale(1.02); background:rgba(255,255,255,0.2); }
+  .coupon.revealed {
+    background:rgba(255, 143, 199, 0.25);
+    border-style: solid;
+    border-color: var(--pink);
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(255, 143, 199, 0.3);
+  }
+  .coupon-icon{ font-size:32px; flex-shrink:0; transition: transform 0.3s; }
+  .coupon.revealed .coupon-icon { transform: rotate(-10deg) scale(1.2); }
+  .coupon-title{ margin:0; font-weight:700; font-size:15px; color:#fff; }
+  .coupon-sub{ margin:4px 0 0; font-size:13px; color:rgba(255,255,255,0.85); font-weight:500;}
+
+  .final-card h2{ font-size:26px; margin-bottom:12px; }
+
+  .hearts-container{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:50;
+  }
+  .floating-heart{
+    position:absolute;
+    bottom:-40px;
+    opacity:.95;
+    animation-name:floatUp;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
+  }
+  @keyframes floatUp{
+    0%{ transform:translateY(0) translateX(0) rotate(0deg); opacity:1; }
+    100%{ transform:translateY(-115vh) translateX(var(--drift,0px)) rotate(320deg); opacity:0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+<div class="hearts-container" id="heartsContainer"></div>
+
+<div class="app-container">
+
+  <!-- Screen 1: Landing -->
+  <section class="screen active" id="screen-1" style="display:flex;">
+    <h1 class="cursive-name">Kanak ji</h1>
+    <div class="frame-heart">
+      <img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyZGRhYjB2MWEyYmo3dGswanpvNmVxb2ZndTloejNhNnJ0YWFxZ3kzdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/boW3jHtGQ0KZIvtiQU/giphy.gif" alt="cute peach character waving">
+    </div>
+    <button class="btn-primary btn-pulse" onclick="showScreen('screen-2')">Tap to Open</button>
+  </section>
+
+  <!-- Screen 2: Confession -->
+  <section class="screen" id="screen-2">
+    <div class="glass-card">
+      <img class="gif-md" src="https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyZjhkc28wb2VmdGZsY3AxemI4bmRhbmt4bHI3d3FmMGQwMGU3bXVzaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cFvmm728TtN0BYq8Ed/giphy.gif" alt="sad hugging bears">
+      <h2>I Messed Up, Kanak ji 🥺</h2>
+      <p class="subtext">But I'm ready to make it right.</p>
+      <button class="btn-primary" onclick="showScreen('screen-3')">Listen to my heart 💖</button>
+    </div>
+  </section>
+
+  <!-- Screen 3: Slide 1 -->
+  <section class="screen" id="screen-3">
+    <div class="glass-card slide-card">
+      <img class="gif-md" src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyeTJpdTd1ODhhYTE1MDRseHc1OXNvMmRvczV2YXo2bWQ2cDV0bzkzeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/eoo1ftfXKE5qvtc2UY/giphy.gif" alt="sad character">
+      <h2>I Know I Hurt You</h2>
+      <p class="subtext">I messed up... and I'm really sorry for that.</p>
+      <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="nav-row">
+        <button class="btn-ghost" onclick="showScreen('screen-2')">&larr; Back</button>
+        <button class="btn-primary" onclick="showScreen('screen-4')">Next &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screen 4: Slide 2 -->
+  <section class="screen" id="screen-4">
+    <div class="glass-card slide-card">
+      <img class="gif-md" src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUybWJtcWs4bzU5eGJtMjJ1dGRtOXd3OTVqb3djN2M1Z2RybzF0Y3M3ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/05Uqwg5SxO9wxzFJkI/giphy.gif" alt="hugging characters">
+      <h2>You Mean Everything</h2>
+      <p class="subtext">I promise I'll be better for you.</p>
+      <div class="dots"><span class="dot"></span><span class="dot active"></span><span class="dot"></span></div>
+      <div class="nav-row">
+        <button class="btn-ghost" onclick="showScreen('screen-3')">&larr; Back</button>
+        <button class="btn-primary" onclick="showScreen('screen-5')">Next &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screen 5: Slide 3 -->
+  <section class="screen" id="screen-5">
+    <div class="glass-card slide-card">
+      <img class="gif-md" src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyeGFodGdrY3J1YTJoOHh2M2cxYWo3d2VhbHV5YXVicTZtNGg5OWxxOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fo8x3BEE2uIVTg8j9a/giphy.gif" alt="truly sorry character">
+      <h2>I'm Truly Sorry</h2>
+      <p class="subtext">Please forgive me... you mean so much to me.</p>
+      <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot active"></span></div>
+      <div class="nav-row">
+        <button class="btn-ghost" onclick="showScreen('screen-4')">&larr; Back</button>
+        <button class="btn-primary" onclick="showScreen('screen-6')">Next &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screen 6: Envelope -->
+  <section class="screen" id="screen-6">
+    <div class="envelope-wrap" onclick="showScreen('screen-7')">
+      <img class="gif-envelope" src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyaXpycWRnZXl4ejRxdjB3dGxnOTlzNmQydGI4anI4aTUzdzRpdjYyciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/lJdaJk46rgFYLTmjMI/giphy.gif" alt="cute bouncing envelope">
+      <p class="tap-label">CLICK TO OPEN 💌</p>
+    </div>
+  </section>
+
+  <!-- Screen 7: Peace Offering Letter -->
+  <section class="screen" id="screen-7">
+    <div class="letter-card">
+      <h2>A VIRTUAL PEACE OFFERING ❤️</h2>
+      <p class="letter-body">
+        My Dearest Kanak ji,<br><br>
+        I'm really sorry my love. I accidentally upset the most precious and adorable person in my life... you 🥺. Please forgive me.
+      </p>
+      <img class="gif-floating" src="https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUybmt6OXBzNXRnMGc1dHF0czlxazI1b2hzcDQ2NjF2cDBidW9tNHhpaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Kb3rmGKyyov27n0fFl/giphy.gif" alt="character below letter">
+      <button class="btn-primary" onclick="showScreen('screen-8')">Proceed to heal my heart</button>
+    </div>
+  </section>
+
+  <!-- Screen 8: Forgiveness Meter -->
+  <section class="screen" id="screen-8">
+    <div class="glass-card">
+      <h2>FORGIVENESS METER ❤️</h2>
+      <img class="gif-md" src="https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyMDhsajJjc3A5eXNyeHA2d2l4bzk2YnVwc3p1eGZsdTVoYjdpanJuaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/bEgopybtrZgHjSLPbx/giphy.gif" alt="forgiveness characters" style="margin-top:14px;">
+      <p class="meter-label" id="meterLabel">0% FORGIVEN</p>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <button class="heart-tap-btn" id="heartTapBtn" onclick="tapHeart()">
+        <span>💗</span>
+        TAP TO HEAL MY HEART!!
+      </button>
+    </div>
+  </section>
+
+  <!-- Screen 9: Interactive Gifts/Coupons -->
+  <section class="screen" id="screen-9">
+    <div class="glass-card coupons-card">
+      <h2>Your Apology Gifts 🎁</h2>
+      <p class="subtext" style="margin-top:0;">Tap the boxes to unwrap them!</p>
+      
+      <div class="coupon" onclick="revealGift(this, '💐', 'Fresh Blooms', 'A pretty bouquet just for you')">
+        <span class="coupon-icon">🎁</span>
+        <div>
+          <p class="coupon-title">Mystery Gift 1</p>
+          <p class="coupon-sub">Tap to unwrap...</p>
+        </div>
+      </div>
+      
+      <div class="coupon" onclick="revealGift(this, '🧸', 'Cuddle Pass', 'Valid for unlimited warm hugs')">
+        <span class="coupon-icon">🎁</span>
+        <div>
+          <p class="coupon-title">Mystery Gift 2</p>
+          <p class="coupon-sub">Tap to unwrap...</p>
+        </div>
+      </div>
+      
+      <div class="coupon" onclick="revealGift(this, '🍫', 'Sweet Treat', 'Your favorite chocolates on me')">
+        <span class="coupon-icon">🎁</span>
+        <div>
+          <p class="coupon-title">Mystery Gift 3</p>
+          <p class="coupon-sub">Tap to unwrap...</p>
+        </div>
+      </div>
+      
+      <button class="btn-primary" style="margin-top:10px; width:100%;" onclick="showScreen('screen-10'); startHearts();">Accept Gifts & Forgive Me! 🥰</button>
+    </div>
+  </section>
+
+  <!-- Screen 10: Final -->
+  <section class="screen" id="screen-10">
+    <div class="glass-card final-card">
+      <h2>PEACE TREATY SIGNED! 🎉</h2>
+      <p class="subtext" style="font-size:16px;">Thank you for being the most forgiving and wonderful person. I love you to the moon and back and I'm never letting go!</p>
+      <img class="gif-floating" src="https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyZXI5NDUwNG95bWY4MHdxNjBicXdvaGxnaGxyNnFkNXIyOTBtanIydiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/7CQt29VZFXY0QR3PJV/giphy.gif" style="width: 150px; margin-top: 10px;">
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function showScreen(id){
+    const current = document.querySelector('.screen.active');
+    const next = document.getElementById(id);
+    
+    if(current){
+      current.style.animation = "fadeOutDown 0.35s forwards ease-in";
+      setTimeout(()=>{ 
+        current.classList.remove('active');
+        current.style.display = 'none';
+        current.style.animation = ""; 
+        
+        next.style.display = 'flex';
+        next.style.animation = "fadeInUp 0.45s forwards ease-out";
+        next.classList.add('active');
+      }, 300);
+    } else {
+      next.style.display = 'flex';
+      next.style.animation = "fadeInUp 0.45s forwards ease-out";
+      next.classList.add('active');
+    }
+  }
+
+  function revealGift(element, icon, title, subtitle) {
+    if(element.classList.contains('revealed')) return; 
+    element.innerHTML = `
+      <span class="coupon-icon">${icon}</span>
+      <div>
+        <p class="coupon-title">${title}</p>
+        <p class="coupon-sub">${subtitle}</p>
+      </div>
+    `;
+    element.classList.add('revealed');
+  }
+
+  let forgiveness = 0;
+  let meterDone = false;
+  function tapHeart(){
+    if(meterDone) return;
+    forgiveness = Math.min(100, forgiveness + 10);
+    document.getElementById('progressFill').style.width = forgiveness + '%';
+    const label = document.getElementById('meterLabel');
+    const btn = document.getElementById('heartTapBtn');
+
+    if(forgiveness < 100){
+      label.textContent = forgiveness + '% FORGIVEN';
+    } else {
+      label.textContent = "100% FORGIVEN! 🥺";
+      label.style.color = "var(--pink)";
+      meterDone = true;
+      setTimeout(()=>{ showScreen('screen-9'); }, 1200); 
+    }
+
+    btn.classList.remove('bump');
+    void btn.offsetWidth; 
+    btn.classList.add('bump');
+  }
+
+  let heartsInterval = null;
+  function startHearts(){
+    if(heartsInterval) return;
+    const container = document.getElementById('heartsContainer');
+    const symbols = ['💗','💖','💕','❤️','💓'];
+    heartsInterval = setInterval(()=>{
+      const heart = document.createElement('div');
+      heart.className = 'floating-heart';
+      heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      const duration = 3.5 + Math.random() * 2.5; 
+      const size = 18 + Math.random() * 20;
+      const left = Math.random() * 100;
+      const drift = (Math.random() * 80 - 40) + 'px';
+      heart.style.left = left + 'vw';
+      heart.style.fontSize = size + 'px';
+      heart.style.animationDuration = duration + 's';
+      heart.style.setProperty('--drift', drift);
+      container.appendChild(heart);
+      setTimeout(()=> heart.remove(), duration * 1000 + 100);
+    }, 250);
+  }
+
+  function initStars(){
+    const starsEl = document.getElementById('stars');
+    const frag = document.createDocumentFragment();
+    for(let i = 0; i < 70; i++){
+      const s = document.createElement('div');
+      s.className = 'star';
+      s.style.left = Math.random() * 100 + 'vw';
+      s.style.top = Math.random() * 100 + 'vh';
+      const size = Math.random() * 2 + 1;
+      s.style.width = size + 'px';
+      s.style.height = size + 'px';
+      s.style.animationDelay = (Math.random() * 4) + 's';
+      s.style.animationDuration = (2.5 + Math.random() * 3) + 's';
+      frag.appendChild(s);
+    }
+    starsEl.appendChild(frag);
+  }
+  initStars();
+</script>
+
+</body>
+</html>
